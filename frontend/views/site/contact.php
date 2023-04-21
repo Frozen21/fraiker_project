@@ -4,41 +4,50 @@
 /** @var yii\bootstrap4\ActiveForm $form */
 /** @var \frontend\models\ContactForm $model */
 
-use yii\bootstrap4\Html;
-use yii\bootstrap4\ActiveForm;
-use yii\captcha\Captcha;
-
 $this->title = 'Контакты';
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <p align="center">ООО “Мёд”</p>
+                <p align="center">ИНН 111111111</p>
+                <p align="center">ОКПО 11111111</p>
+                <p align="center">Юридическй адрес:</p>
+                <p align="center">г. Чебоксары ул. Привокзальная 1</p>
+                <p align="center">Тел: +7 900 000 000</p>
+            </div>
+            <div class="col-lg-8">
+              <?= \andrewdanilov\yandexmap\YandexMap::widget([
+                'id'  => 'some-unique-dom-id', // optional, an ID applied to widget wrapper
+                'apikey' => '', // optional, yandex map api key
+                'center' => [
+                  'latitude' => '56.113220',
+                  'longitude' => '47.264275',
+                ], // or in short 'center' => ['52.449837', '-1.930617']
+                'zoom' => 16, // optional, default 12
+                'points' => [
+                  [
+                    'id' => 'point-1',
+                    'title' => 'Point 1 Caption',
+                    'text' => 'Point 1 Text (html allowed)',
+                    'color' => '#FFA07A',
+                    'latitude' => '56.113220',
+                    'longitude' => '47.264275',
+                  ],
+                ],
+                //'pointsUrl' => '/points.json', // url used to get an array of points instead of manual setting the 'points' param
+                'scroll' => true, // optional, zoom map by scrolling, default false
+                'wrapperTag' => 'div', // optional, html tag to wrap the map, default 'div'
+                'wrapperOptions' => [ // optional, attributes passed to \yii\helpers\Html::tag() method for constructing map wrapper
+                  'class' => 'map-wrapper',
+                  'style' => 'width:100%;height:400px;',
+                ],
+                // Javascript function name to handle clicks on placemarks.
+                // Callback function can accept just one param - point ID string.
+                'jsPointsClickCallback' => 'myCallback',
+              ]) ?>
+            </div>
         </div>
     </div>
-
 </div>

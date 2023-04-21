@@ -42,6 +42,9 @@ return [
             'rules' => [
             ]
         ],
+        'yandexMapsApi' => [
+          'class' => 'mirocow\yandexmaps\Api',
+        ],
     ],
     'params' => $params,
 ];

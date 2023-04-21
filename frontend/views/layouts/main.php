@@ -18,6 +18,7 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/images/bee_logo.png" type="image/x-icon">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -25,7 +26,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
-<header>
+<header class="my-header">
     <nav>
     <div class="navbar-header">
         <a class="item" href="/site/index">
@@ -45,7 +46,7 @@ AppAsset::register($this);
       ['label' => 'Главная страница', 'url' => ['/site/index'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'О магазине', 'url' => ['/site/about'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'Каталог товаров', 'url' => ['/'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'Доставка и оплата', 'url' => ['/'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+      ['label' => 'Доставка и оплата', 'url' => ['/site/shipping'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'Контакты', 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'my-navbarlabel']],
     ];
     if (Yii::$app->user->isGuest) {
@@ -100,7 +101,7 @@ AppAsset::register($this);
                         <a href="#!" class="ul-footer-text float-left">Каталог товаров</a>
                     </li>
                     <li>
-                        <a href="#!" class="ul-footer-text float-left">Доставка и оплата</a>
+                        <a href="/site/shipping" class="ul-footer-text float-left">Доставка и оплата</a>
                     </li>
                     <li>
                         <a href="/site/contact" class="ul-footer-text float-left">Контакты</a>

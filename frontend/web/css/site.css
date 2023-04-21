@@ -76,6 +76,21 @@ a.item {
     text-align: center;
 }
 
+.my-header {
+    right: 0;
+    width: 100%;
+}
+
+.my-btn {
+    color: #fff;
+    background-color: #f1b000;
+}
+
+.my-btn:hover {
+    color: #fff;
+    background-color: #f08080;
+}
+
 .footer-text {
     font-size: 14px;
     color: #4a4947;
@@ -93,6 +108,12 @@ a.item {
     height: 60px;
     width: 85px;
 }
+
+.about-image {
+    width: 90%;
+    height: 40%;
+}
+
 a.my-bg:hover, a.my-bg:focus,
 button.my-bg:hover,
 button.my-bg:focus {
