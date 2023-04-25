@@ -12,28 +12,50 @@ $this->title = 'Вход';
 <div class="site-login">
     <div class="row">
         <div class="col-lg-3">
+                <label>Количество</label>
+                <input name="count" type="text" value="1" />
+                <input type="hidden" name="id">">
+              <?=
+              Html::hiddenInput(
+                Yii::$app->request->csrfParam,
+                Yii::$app->request->csrfToken
+              );
+              ?>
+                <button type="submit"
+                        class="btn btn-warning">
+                    <i class="fa fa-shopping-cart"></i>
+                    Добавить в корзину
+                </button>
+            <p>Артикул: 1234567</p>
+            <p>Наличие: На складе</p>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-6 border border-warning login shadow-lg p-3 mb-5 bg-white">
+            <br/>
             <h1 class="text-centered"><?= Html::encode($this->title) ?></h1>
+            <br/>
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->inline(true) ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                <?= $form->field($model, 'rememberMe', ['options' =>  ['class' => 'custom-checkbox']])->checkbox() ?>
 
-                <div style="color:#999;margin:1em 0">
-                    <?= Html::a('Забыли пароль?', ['site/request-password-reset'], ['class' => 'text-centered']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
+                <div style="color:margin:1em 0">
+                    <?= Html::a('Забыли пароль?', ['site/request-password-reset'], ['class' => 'my-font']) ?>
+                </div>
+                <div style="margin:1em 0">
+                  <?= Html::a('Регистрация', ['site/signup'], ['class' => 'my-font']) ?>
                 </div>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton('Войти', ['class' => 'btn my-btn', 'name' => 'login-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
+            <br/>
+        </div>
+        <div class="col-lg-3">
         </div>
     </div>
 </div>

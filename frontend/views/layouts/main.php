@@ -36,20 +36,6 @@ AppAsset::register($this);
         </a>
     </div>
     </nav>
-    <div class="wrapper">
-        <div class="container">
-            <div class="my-bg">
-                <ul>
-                    <li><a href="/site/index">Главная страница</a></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <?php
     NavBar::begin([
         'options' => [
@@ -64,8 +50,8 @@ AppAsset::register($this);
       ['label' => 'Контакты', 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'my-navbarlabel']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup'], 'linkOptions' => ['class' => 'my-navbarlabel']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel']];
+//        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup'], 'linkOptions' => ['class' => 'my-navbarlabel']];
+        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
@@ -77,7 +63,7 @@ AppAsset::register($this);
             . '</li>';
     }
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-center'],
+        'options' => ['class' => 'navbar-nav'],
         'items' => $menuItems,
     ]);
     NavBar::end();

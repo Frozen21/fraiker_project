@@ -32,6 +32,16 @@ class ResendVerificationEmailForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+          'email' => 'Емейл',
+        ];
+    }
+
+    /**
      * Sends confirmation email to user
      *
      * @return bool whether the email was sent
@@ -55,7 +65,7 @@ class ResendVerificationEmailForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->setSubject('Регистрация аккуанта на' . Yii::$app->name)
             ->send();
     }
 }

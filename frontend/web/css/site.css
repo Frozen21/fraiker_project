@@ -62,6 +62,11 @@ a.item {
     background-color: #edeec8 !important;
 }
 
+.login {
+    text-align: center;
+    border-radius: 30px;
+}
+
 .my-navbarlabel {
     color: black;
 }
@@ -110,6 +115,11 @@ a.item {
 }
 .ul-footer-text:hover {
     color: lightcoral;
+}
+
+.my-font {
+    color: #000000;
+    text-decoration: underline;
 }
 
 .footer-image {
