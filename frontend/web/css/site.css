@@ -86,6 +86,14 @@ a.item {
     background-color: #f1b000;
 }
 
+.text-centered {
+    text-align: center;
+}
+
+.site-error {
+    font-size: 500%;
+}
+
 .my-btn:hover {
     color: #fff;
     background-color: #f08080;

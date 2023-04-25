@@ -36,6 +36,20 @@ AppAsset::register($this);
         </a>
     </div>
     </nav>
+    <div class="wrapper">
+        <div class="container">
+            <div class="my-bg">
+                <ul>
+                    <li><a href="/site/index">Главная страница</a></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <?php
     NavBar::begin([
         'options' => [
