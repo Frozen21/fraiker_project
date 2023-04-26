@@ -6,6 +6,7 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\data\Pagination;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -151,6 +152,17 @@ class SiteController extends Controller
     public function actionProducts()
     {
         return $this->render('products');
+    }
+
+    /**
+     * Displays shipping and payment.
+     *
+     * @return mixed
+     */
+    public function actionOrders()
+    {
+      $pages = new Pagination(['totalCount' => 50]);
+      return $this->render('orders', ['pages' => $pages]);
     }
 
     /**

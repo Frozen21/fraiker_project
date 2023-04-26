@@ -42,18 +42,25 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md my-bg',
         ],
     ]);
-    $menuItems = [
-      ['label' => 'Главная страница', 'url' => ['/site/index'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'О магазине', 'url' => ['/site/about'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'Каталог товаров', 'url' => ['/site/products'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'Доставка и оплата', 'url' => ['/site/shipping'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'Контакты', 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-    ];
-    $menuItems[] = '<li class="nav-login"></li>';
     if (Yii::$app->user->isGuest) {
-//        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup'], 'linkOptions' => ['class' => 'my-navbarlabel']];
-        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel nav-login']];
+      $menuItems = [
+        ['label' => 'Главная страница', 'url' => ['/site/index'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+        ['label' => 'О магазине', 'url' => ['/site/about'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+        ['label' => 'Каталог товаров', 'url' => ['/site/products'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+        ['label' => 'Доставка и оплата', 'url' => ['/site/shipping'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+        ['label' => 'Контакты', 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+      ];
+      $menuItems[] = '<li class="nav-login"></li>';
+      $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel nav-login']];
     } else {
+        $menuItems = [
+            ['label' => 'Главная страница', 'url' => ['/site/index'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+            ['label' => 'Каталог товаров', 'url' => ['/site/products'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+            ['label' => 'Заказы', 'url' => ['/site/orders'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+            ['label' => 'Пользователи', 'url' => ['#!'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+            ['label' => 'Настройки', 'url' => ['#!'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+        ];
+       $menuItems[] = '<li class="nav-logout"></li>';
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
             . Html::submitButton(
