@@ -13,7 +13,7 @@ $this->title = 'Магазин натурального мёда';
                 <br/>
                 <h2>Скидки до 30%</h2>
                 <br/>
-                <a href="/site/about" class="btn my-btn">Каталог товаров</a>
+                <a href="/site/products" class="btn my-btn">Каталог товаров</a>
             </div>
             <div class="col-lg-3">
                 <img class="float-right" src="/images/honeyjar.png"/>
