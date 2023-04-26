@@ -140,7 +140,17 @@ class SiteController extends Controller
      */
     public function actionShipping()
     {
-      return $this->render('shipping');
+        return $this->render('shipping');
+    }
+
+    /**
+     * Displays shipping and payment.
+     *
+     * @return mixed
+     */
+    public function actionProducts()
+    {
+        return $this->render('products');
     }
 
     /**
@@ -152,7 +162,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', 'Спасибо за регистрацию');
             return $this->goHome();
         }
 
@@ -171,12 +181,12 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', 'Письмо с инструкцией для восстановления пароля отправлен на ваш емейл.');
 
                 return $this->goHome();
             }
 
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+            Yii::$app->session->setFlash('error', 'Извините, не можем отправить на данный емейл');
         }
 
         return $this->render('requestPasswordResetToken', [

@@ -45,23 +45,25 @@ AppAsset::register($this);
     $menuItems = [
       ['label' => 'Главная страница', 'url' => ['/site/index'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'О магазине', 'url' => ['/site/about'], 'linkOptions' => ['class' => 'my-navbarlabel']],
-      ['label' => 'Каталог товаров', 'url' => ['/'], 'linkOptions' => ['class' => 'my-navbarlabel']],
+      ['label' => 'Каталог товаров', 'url' => ['/site/products'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'Доставка и оплата', 'url' => ['/site/shipping'], 'linkOptions' => ['class' => 'my-navbarlabel']],
       ['label' => 'Контакты', 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'my-navbarlabel']],
     ];
+    $menuItems[] = '<li class="nav-login"></li>';
     if (Yii::$app->user->isGuest) {
 //        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup'], 'linkOptions' => ['class' => 'my-navbarlabel']];
-        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel']];
+        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'my-navbarlabel nav-login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                'Выйти (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout', 'linkOptions' => ['class' => 'my-navbarlabel']]
             )
             . Html::endForm()
             . '</li>';
     }
+    $menuItems[] = '<li><img class="nav-img" src="/images/basket.png"/></li>';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => $menuItems,
@@ -112,16 +114,16 @@ AppAsset::register($this);
                 <h5 class="footer-text">Категории</h5>
                 <ul class="list-unstyled float-left">
                     <li>
-                        <a href="#!" class="ul-footer-text float-left">Мёд</a>
+                        <a href="/site/products" class="ul-footer-text float-left">Мёд</a>
                     </li>
                     <li>
-                        <a href="#!" class="ul-footer-text float-left">Семена медоносных культур</a>
+                        <a href="/site/products" class="ul-footer-text float-left">Семена медоносных культур</a>
                     </li>
                     <li>
-                        <a href="#!" class="ul-footer-text float-left">Прополис</a>
+                        <a href="/site/products" class="ul-footer-text float-left">Прополис</a>
                     </li>
                     <li>
-                        <a href="#!" class="ul-footer-text float-left">Побочные продукты</a>
+                        <a href="/site/products" class="ul-footer-text float-left">Побочные продукты</a>
                     </li>
                 </ul>
             </div>

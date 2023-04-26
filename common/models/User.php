@@ -180,6 +180,16 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Sets status
+     *
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
      * Generates "remember me" authentication key
      */
     public function generateAuthKey()

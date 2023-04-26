@@ -12,22 +12,6 @@ $this->title = 'Вход';
 <div class="site-login">
     <div class="row">
         <div class="col-lg-3">
-                <label>Количество</label>
-                <input name="count" type="text" value="1" />
-                <input type="hidden" name="id">">
-              <?=
-              Html::hiddenInput(
-                Yii::$app->request->csrfParam,
-                Yii::$app->request->csrfToken
-              );
-              ?>
-                <button type="submit"
-                        class="btn btn-warning">
-                    <i class="fa fa-shopping-cart"></i>
-                    Добавить в корзину
-                </button>
-            <p>Артикул: 1234567</p>
-            <p>Наличие: На складе</p>
         </div>
         <div class="col-lg-6 border border-warning login shadow-lg p-3 mb-5 bg-white">
             <br/>
